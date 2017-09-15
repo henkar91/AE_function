@@ -1,0 +1,114 @@
+---
+title: "Attitudinal Equity"
+author: "Henrik Karlsson"
+date: "16 mars 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Set working directory where you're data is store.
+```{r setwed}
+setwd("G:/BU/Market_Science_Group/1.1 R/3. Development/AE")
+```
+
+### Required packages
+```{r load packages, echo = TRUE, results="hide", message= FALSE}
+library(haven)
+library(tidyr)
+library(dplyr)
+
+```
+
+
+### Preprocessing
+Before the actual AE calculation, we need to prepare the data.
+
+1. Read data and change all variable names to lower character
+2. Rename the unique id to "uid" and control that number of unique ids = number of rows in the data file
+3. Specify the beginning of the variable names for AE questions (relevance and closeness).
+4. We need to make sure that all AE variable names begins equally for releveance and closeness and that the brand id is within the variable name, separated by a "_".
+
+For example:
+
+*Valid* variable names <- relevance for first brand = "q8aloop1_1", second brand = "q8aloop1_2" ... 
+
+*Not* valid variable names <- closeness for first brand = "q8b_loop1_1".
+
+There may only be one (1) "_" within the variable name for this script to work. However it can easly be changed if needed.
+
+
+```{R preprocessing}
+# Read data
+r <- read_spss(file ="SE160810450101_170221_AE.sav")
+names(r) <- tolower(names(r))
+
+# AE question in data file
+d <- rename(r, uid = respondent_serial)  # Replace unique respondent ID to uid
+
+relevance <- "q8a"
+closeness <- "q8b"
+
+# Check unique id
+length(unique(d$uid)) == nrow(d)
+
+```
+
+### Extract and arrange all relevance and closeness questions
+
+```{r extract ae, warning = FALSE}
+# Extract BRAND PERFORMANCE - Relevance
+
+rel <- d %>%
+        select(uid, starts_with(relevance)) %>%              # Select variables
+        gather(variable, value, -uid, na.rm =T) %>%          # Transpose data
+        separate(variable, into = c("question", "brand_id"), 
+                 sep = "_", remove = T) %>%                  # split variable name to extract brand id
+        select(-question, relevance = value) %>%             # remove question and rename value column
+        mutate(brand_id = as.factor(brand_id)) %>%           # change data type of brand id
+        arrange(uid, desc(brand_id))                         # sort data
+
+
+# Extract BRAND CLOSENESS
+clo <- d %>%
+        select(uid, starts_with(closeness)) %>%
+        gather(variable, value, -uid, na.rm =T) %>%
+        separate(variable, into = c("question", "brand_id"), 
+                 sep = "_", remove = T) %>%
+        select(-question, closeness = value) %>%
+        mutate(brand_id = as.factor(brand_id)) %>%
+        arrange(uid, desc(brand_id))
+
+```
+
+
+
+### Compute AE
+
+```{r ae}
+# Combine PERFORMANCE and CLOSENESS and compute AE
+ae <- left_join(x = rel, y = clo, by = c("uid", "brand_id")) %>%  # Merge rel and clo
+        select(uid, brand_id, relevance, closeness) %>%           # Select necessary variables  
+        mutate(avg_brand_score = (relevance + closeness)/2) %>%   # Compute average brand score
+        group_by(uid) %>%                                         # Group data per respondent
+        mutate(rank = rank(-avg_brand_score),                     # Rank avg brand score for each respondent
+               step1 = 1/rank^1.35,                               # Compute numerator
+               step2 = sum(step1),                                # Compute denominator  
+               ae = step1/step2 * 100) %>%                        # Compute AE
+        arrange(uid, desc(brand_id))
+
+# Remove help calculations
+ae <- ae %>%
+        select(-avg_brand_score, -rank, -step1, -step2)
+
+head(ae)
+
+rm(rel, clo)
+
+````
+        
+
+
+
