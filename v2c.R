@@ -44,4 +44,4 @@ v2c <- function(data, id, relevance_root_q, closeness_root_q){
     return(ae)
 }
 
-v2c(df, "respid", "q1", "q2")
+t_df <- v2c(df, "respid", "q1", "q2")
