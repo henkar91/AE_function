@@ -9,4 +9,5 @@ Description: Computes Attitudinal Equity (ae), "mind-share", for x number of bra
 License: GPL-2
 Imports: tidyverse
 RoxygenNote: 6.0.1
+Seealso:\url{https://www.researchgate.net/publication/252568552_A_new_measure_of_brand_attitudinal_equity_based_on_the_Zipf_distribution}
 

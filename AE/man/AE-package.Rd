@@ -21,14 +21,16 @@ The DESCRIPTION file:
 Maintainer: \packageMaintainer{ae}
 }
 \references{
-~~ Literature or other references for background information ~~
+-
 }
-~~ Optionally other standard keywords, one per line, from file KEYWORDS in the R documentation directory ~~
+
 \keyword{ package }
 \seealso{
-~~ Optional links to other man pages, e.g. ~~
-~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
+\url{https://www.researchgate.net/publication/252568552_A_new_measure_of_brand_attitudinal_equity_based_on_the_Zipf_distribution}
+
 }
 \examples{
-~~ simple examples of the most important functions ~~
+varstocases <- v2c(df, "respid", "q1", "q2")
+ae <- ae(data = a, id = "respid", "relevance", "closeness")
+
 }
