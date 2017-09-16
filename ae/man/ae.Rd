@@ -2,7 +2,7 @@
 % Please edit documentation in R/ae.R
 \name{ae}
 \alias{ae}
-\title{Attituduinal Equity}
+\title{Attitudinal Equity}
 \usage{
 ae(data, id, relevance, closeness)
 }

@@ -9,3 +9,4 @@ Description: Computes Attitudinal Equity (ae), "mind-share", for x number of bra
 License: GPL-2
 Imports: tidyverse
 RoxygenNote: 6.0.1
+

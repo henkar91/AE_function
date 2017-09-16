@@ -1,4 +1,4 @@
-#' @title Attituduinal Equity
+#' @title Attitudinal Equity
 #' @name ae
 #' @param data A data frame.
 #' @param id name of id variable, within "".
@@ -10,9 +10,9 @@
 
 ae <-
 function(data, id, relevance, closeness){
-    stopifnot(is.data.frame(data),
-              is.numeric(relevance),
-              is.numeric(closeness))
+    # stopifnot(is.data.frame(data),
+    #           is.numeric(relevance),
+    #           is.numeric(closeness))
     
     data <- data %>%
         select(id2 = id, relevance, closeness) %>%
