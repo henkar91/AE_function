@@ -1,5 +1,4 @@
 # Sample data
-
 df <- tibble(respid = 1:10,
              q1_1 = c(1, 3  ,3,  4,  5,  NA,  7,  8,  9,  NA),
              q1_2 = c(1, 2  ,4,  4,  5,  NA,  4,  8,  9,  NA),

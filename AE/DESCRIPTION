@@ -1,0 +1,11 @@
+Package: AE
+Type: Package
+Title: Attitudinal Equity
+Version: 1.0
+Date: 2017-09-16
+Author: Henrik Karlsson
+Maintainer: Henrik Karlsson <henkar91@gmail.com>
+Description: The package computes the attitudinal equity, mind share, for respondents competetive set.     
+The package also contains a simple function, similar to SPSS:s VarsToCases, to help structure the data from wide to long format.
+License: GPL-2
+Imports: tidyverse
