@@ -1,24 +1,24 @@
-\name{AE-package}
-\alias{AE-package}
-\alias{AE}
+\name{ae-package}
+\alias{ae-package}
+\alias{ae}
 \docType{package}
 \title{
-\packageTitle{AE}
+\packageTitle{ae}
 }
 \description{
-\packageDescription{AE}
+\packageDescription{ae}
 }
 \details{
 
 The DESCRIPTION file:
-\packageDESCRIPTION{AE}
-\packageIndices{AE}
+\packageDESCRIPTION{ae}
+\packageIndices{ae}
 ~~ An overview of how to use the package, including the most important functions ~~
 }
 \author{
-\packageAuthor{AE}
+\packageAuthor{ae}
 
-Maintainer: \packageMaintainer{AE}
+Maintainer: \packageMaintainer{ae}
 }
 \references{
 ~~ Literature or other references for background information ~~
