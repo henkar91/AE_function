@@ -20,7 +20,6 @@ function(data, id, relevance_root_q, closeness_root_q){
         separate(variable, into = c("question", "brand_id"), 
                  sep = "_", remove = T) %>% 
         select(-question, relevance = value)
-    print(rel)
     
     clo <- data %>%
         select(id, starts_with(closeness_root_q)) %>%
@@ -28,7 +27,6 @@ function(data, id, relevance_root_q, closeness_root_q){
         separate(variable, into = c("question", "brand_id"), 
                  sep = "_", remove = T) %>% 
         select(-question, closeness = value)
-    print(clo)
     
     ae <- left_join(rel, clo, by = c(id, "brand_id"))
     
