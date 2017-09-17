@@ -7,7 +7,7 @@ Author: Henrik Karlsson
 Maintainer: Henrik Karlsson <henkar91@gmail.com>
 Description: Computes Attitudinal Equity (ae), "mind-share", for x number of brands. Package also have functionality to transpose data from wide to long format (v2c).
 License: GPL-2
-Imports: tidyverse
+Depends: tidyverse
 RoxygenNote: 6.0.1
 Seealso:\url{https://www.researchgate.net/publication/252568552_A_new_measure_of_brand_attitudinal_equity_based_on_the_Zipf_distribution}
 
