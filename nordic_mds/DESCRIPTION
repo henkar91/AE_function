@@ -3,7 +3,7 @@ Type: Package
 Title: Nordic MDS
 Version: 1.0
 Date: 2017-09-16
-Author: Henrik Karlsson
+Author: Henrik Karlsson, Oskar Sjolin
 Maintainer: Henrik Karlsson <henkar91@gmail.com>
 Description: Package to help MDS work in R. Package contains several useful function when working with survey data.
 License: GPL-2
