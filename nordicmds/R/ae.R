@@ -7,6 +7,7 @@
 #' @return Returns data frame added with avg brand score and Attitudinal Equity.
 #' @description Function computes the avg brand score and Attitudinal Equity. Data should be structured in long format.
 #' @references \url{https://www.researchgate.net/publication/252568552_A_new_measure_of_brand_attitudinal_equity_based_on_the_Zipf_distribution}
+#' @export 
 
 ae <-
 function(data, id, relevance, closeness){

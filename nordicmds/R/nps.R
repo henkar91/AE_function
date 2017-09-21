@@ -3,6 +3,7 @@
 #' @param x a variable, NPS-question
 #' @return NPS-score (Share of Promotors - Detractors)
 #' @description Computes the NPS-score
+#' @export
 
 
 # Function

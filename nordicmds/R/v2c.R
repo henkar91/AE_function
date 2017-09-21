@@ -6,6 +6,7 @@
 #' @param closeness_root_q question root for closeness variables, format questionroot_brandid, within "".
 #' @return Returns transposed data frame (long format).
 #' @description Function is intended to work as SPSSs VarsToCases
+#' @export
 
 
 v2c <-
