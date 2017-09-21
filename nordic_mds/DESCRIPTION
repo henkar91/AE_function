@@ -1,14 +1,14 @@
-Package: ae
+Package: nordicmds
 Type: Package
-Title: Attitudinal Equity
+Title: Nordic MDS
 Version: 1.0
 Date: 2017-09-16
 Author: Henrik Karlsson
 Maintainer: Henrik Karlsson <henkar91@gmail.com>
-Description: Computes Attitudinal Equity (ae), "mind-share", for x number of brands. Package also have functionality to transpose data from wide to long format (v2c).
+Description: Package to help MDS work in R. Package contains several useful function when working with survey data.
 License: GPL-2
 Depends: tidyverse
 Imports: tidyverse
 RoxygenNote: 6.0.1
-Seealso:\url{https://www.researchgate.net/publication/252568552_A_new_measure_of_brand_attitudinal_equity_based_on_the_Zipf_distribution}
+
 
